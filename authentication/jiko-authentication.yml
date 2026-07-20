@@ -1,0 +1,61 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.jiko.io/products/customer-api/guides/oauth/getting-started
+docs:
+- https://docs.jiko.io/products/customer-api/guides/oauth/getting-started
+- https://docs.jiko.io/products/partner-api/authentication
+- https://authentication-portal.sandbox-api.jikoservices.com/.well-known/openid-configuration
+summary:
+  types:
+  - oauth2
+  - openIdConnect
+  - http
+  api_key_in: []
+  oauth2_flows:
+  - authorizationCode
+  - clientCredentials
+schemes:
+- name: CustomerOAuth2
+  api: jiko:jiko-customer-api
+  type: oauth2
+  description: OAuth 2.0 / OpenID Connect. Two flows are supported depending on use
+    case; all clients authenticate with Private Key JWT (client_assertion) — no shared
+    secrets. PKCE is required and DPoP is optional.
+  flows:
+  - flow: authorizationCode
+    use_case: User-facing apps acting on behalf of users (self-service client setup
+      via the Settings page).
+    authorizationUrl: https://authentication-portal.sandbox-api.jikoservices.com/api/oauth2/authorize
+    tokenUrl: https://authentication-portal.sandbox-api.jikoservices.com/api/oauth2/token
+    par_endpoint: https://authentication-portal.sandbox-api.jikoservices.com/api/oauth2/par
+  - flow: clientCredentials
+    use_case: Machine-to-machine backend services (client setup via Jiko support).
+    tokenUrl: https://authentication-portal.sandbox-api.jikoservices.com/api/oauth2/token
+  client_authentication: private_key_jwt
+  token_endpoint_auth_signing_alg: [PS256, EdDSA]
+  extensions:
+    pkce: required
+    dpop: optional
+  token_lifetimes:
+    access_token: 15 minutes
+    refresh_token: 90 days (authorization code flow only)
+  issuer: https://authentication-portal.sandbox-api.jikoservices.com
+  jwks_uri: https://authentication-portal.sandbox-api.jikoservices.com/.well-known/jwks.json
+  userinfo_endpoint: https://authentication-portal.sandbox-api.jikoservices.com/api/v1/user
+- name: PartnerBearer
+  api: jiko:jiko-partner-api
+  type: http
+  scheme: bearer
+  description: Partners receive a username, password and shared secret from Jiko, and
+    obtain a bearer token from the Login endpoint (POST /api/v1/login/). The token
+    is sent in the Authorization header and has a 60-minute lifetime; the partner
+    re-logs in when it expires.
+  token_lifetime: 60 minutes
+  request_requirements:
+  - header: Authorization
+    value: Bearer <access_token>
+  - header: x-jiko-idempotency
+    value: random UUID unique per action (replay window 1 hour)
+  - header: x-jiko-signature
+    value: base64(HMAC-SHA256(x-jiko-idempotency + request pathname + body, shared_secret))
+  network: Requests must originate from an IP address allowlisted by Jiko.
