@@ -1,0 +1,37 @@
+generated: '2026-07-19'
+method: searched
+source:
+- https://docs.jiko.io/products/customer-api/changelog
+- https://docs.jiko.io/products/customer-api/guides/oauth/getting-started
+- https://docs.jiko.io/products/partner-api/authentication
+versioning:
+  scheme: uri-path
+  current:
+  - v1
+  - v2
+  docs: https://docs.jiko.io/products/customer-api/changelog
+  notes: New resource versions ship under /api/v2 (Portals V2, Transactions V2, Counterparties
+    V2) while v1 endpoints remain available. Additive changes (new fields/endpoints)
+    are documented in the dated changelogs.
+token_lifetimes:
+  customer_api:
+    access_token: 15 minutes
+    refresh_token: 90 days (authorization code flow only)
+  partner_api:
+    bearer_token: 60 minutes
+deprecation:
+  policy_url: null
+  sunset_header: unknown
+  notes: No formal deprecation policy or RFC 8594 Sunset/Deprecation header support
+    was documented on the pages reviewed. Irreversible state changes (e.g. closing
+    a portal via status CLOSED) are called out in the changelog.
+status_page: null
+sla:
+  url: null
+  notes: No public SLA/uptime target page found.
+maturity:
+  customer_api: Public to integrators since 2026-01-20.
+  metrics_reported_by_vendor:
+  - Over $10 billion in T-bills traded
+  - 130,000+ accounts opened
+  - 11 days from sandbox to production (vendor-stated)

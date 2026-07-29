@@ -1,0 +1,69 @@
+generated: '2026-07-19'
+method: searched
+spec_type: Webhooks
+source:
+- https://docs.jiko.io/products/customer-api/use-cases/webhooks
+- https://docs.jiko.io/products/partner-api/guides/building/webhooks
+summary: Jiko delivers real-time event notifications via webhook subscriptions on
+  both APIs. Consumers create a subscription with a list of event types, a callback
+  URL, and a shared secret (16-char minimum) used to sign/verify deliveries. Payloads
+  carry event_id, event_type, timestamp, a per-event payload object, and (Customer
+  API) a customer_id.
+delivery:
+  envelope_fields:
+  - event_id
+  - event_type
+  - timestamp
+  - payload
+  - customer_id
+  subscription:
+    create_operation: create_subscription_api_v1_subscriptions__post
+    list_event_types_operation: list_event_types_api_v1_events_types__get
+    shared_secret_min_length: 16
+    partner_sandbox_trigger: trigger-webhook (Partner API sandbox endpoint emits example
+      payloads per event type)
+channels:
+- api: jiko:jiko-customer-api
+  create_subscription: POST /api/v1/subscriptions/
+  events:
+  - transfers.wire.out.processing
+  - transfers.wire.out.success
+  - transfers.wire.out.rejected
+  - transfers.wire.in.success
+  - transfers.wire.in.rejected
+  - transfers.on-us.processing
+  - transfers.on-us.success
+  - transfers.on-us.rejected
+  - transfers.on-us.received
+  example_payload:
+    event_id: 94444752-cfa7-5d08-a2da-7f42ffdc649c
+    event_type: transfers.on-us.received
+    timestamp: '2026-01-30T16:09:35.775108Z'
+    payload:
+      on_us_id: bf01c8e4-f42d-4ccf-9c54-57bc25524ee4
+      transaction_activity_id: 15dfbc4b-5343-4d5d-9230-ff788d034c33
+      receiving_pocket_id: 744ab7f4-e94f-433b-9224-01cbe6585c12
+    customer_id: 0b5b74f5-ad65-4c6d-9170-60fe29794b12
+- api: jiko:jiko-partner-api
+  list_event_types: GET /api/v1/events/types/
+  events:
+  - application.approved
+  - application.documents_needed
+  - application.manual_review
+  - application.rejected
+  - card.status.closed
+  - card.status.frozen
+  - card.status.locked
+  - card.status.open
+  - card.transaction.approved
+  - card.transaction.rejected
+  - transfers.ach.out.success
+  - transfers.ach.out.rejected
+  - transfers.ach.in.success
+  - transfers.ach.in.rejected
+  - transfers.wire.out.processing
+  - transfers.wire.out.success
+  - transfers.wire.out.rejected
+  - transfers.on-us.processing
+  - transfers.on-us.success
+  - transfers.on-us.rejected

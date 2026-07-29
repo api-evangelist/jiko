@@ -1,0 +1,72 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.jiko.io/products/customer-api/guides/rate-limits
+api: jiko:jiko-customer-api
+scope: Per user — the combination of OAuth client_id and authenticated user_id. Unauthenticated
+  (auth-flow) endpoints are limited by client IP address.
+headers:
+- name: X-RateLimit-Limit
+  description: Maximum requests allowed in the current window.
+- name: X-RateLimit-Remaining
+  description: Requests remaining in the current window.
+- name: X-RateLimit-Reset
+  description: Unix timestamp when the current window resets.
+over_limit:
+  status: 429
+  header: Retry-After
+  description: Seconds to wait before retrying.
+rate_limits:
+- group: Authentication
+  detail: login, logout, authorize, signup, token
+  limit_count: 300
+  window: minute
+- group: Agreements
+  limit_count: 300
+  window: minute
+- group: Counterparties
+  limit_count: 300
+  window: minute
+- group: Customer
+  limit_count: 300
+  window: minute
+- group: Notifications
+  limit_count: 300
+  window: minute
+- group: Pockets
+  limit_count: 120
+  window: minute
+- group: Portals
+  limit_count: 300
+  window: minute
+- group: Reports
+  limit_count: 300
+  window: minute
+- group: Subscriptions
+  limit_count: 300
+  window: minute
+- group: Team
+  limit_count: 300
+  window: minute
+- group: Trades
+  limit_count: 120
+  window: minute
+- group: Trading Strategies
+  limit_count: 300
+  window: minute
+- group: Transactions
+  limit_count: 120
+  window: minute
+- group: Transfer Requests (read)
+  limit_count: 120
+  window: minute
+- group: Transfer Requests (create)
+  limit_count: 60
+  window: minute
+  burst: 1/sec
+- group: User
+  limit_count: 300
+  window: minute
+best_practices:
+- Monitor response headers to track remaining budget.
+- Implement exponential backoff on 429 using the Retry-After header.
+- Spread requests over time rather than bursting.

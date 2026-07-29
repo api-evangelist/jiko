@@ -1,0 +1,65 @@
+generated: '2026-07-19'
+method: searched
+source: https://authentication-portal.sandbox-api.jikoservices.com/.well-known/openid-configuration
+docs: https://docs.jiko.io/products/customer-api/guides/oauth/scopes
+api: jiko:jiko-customer-api
+schemes:
+- name: CustomerOAuth2
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://authentication-portal.sandbox-api.jikoservices.com/api/oauth2/authorize
+    tokenUrl: https://authentication-portal.sandbox-api.jikoservices.com/api/oauth2/token
+  - flow: clientCredentials
+    tokenUrl: https://authentication-portal.sandbox-api.jikoservices.com/api/oauth2/token
+scopes:
+- scope: openid
+  description: OpenID Connect scope.
+- scope: profile
+  description: Read information for the current logged-in user.
+- scope: email
+  description: Read email for the current logged-in user.
+- scope: phone
+  description: Read phone number for the current logged-in user.
+- scope: pockets.read
+  description: Read pocket information for a given customer.
+- scope: pockets.write
+  description: Manage pocket information for a given customer.
+- scope: transfers.read
+  description: Read transfer and transfer request information for a given customer.
+- scope: transfers.write
+  description: Create transfers and/or transfer requests.
+- scope: customer.read
+  description: Read customer info for a given customer.
+- scope: customer.write
+  description: Write customer info.
+- scope: team.read
+  description: Read team information for a given customer.
+- scope: team.write
+  description: Manage teams and team members for a given customer.
+- scope: onboarding.read
+  description: Read onboarding information for a given customer.
+- scope: onboarding.write
+  description: Manage onboarding information for a given customer.
+- scope: agreements.read
+  description: Read agreement information for a given customer.
+- scope: subscriptions.read
+  description: Read webhook subscription information (from OIDC discovery; not listed
+    on the scopes doc page).
+- scope: subscriptions.write
+  description: Manage webhook subscriptions (from OIDC discovery).
+- scope: notifications.read
+  description: Read notifications (from OIDC discovery).
+- scope: notifications.write
+  description: Manage notifications (from OIDC discovery).
+- scope: reports.read
+  description: Read reports (from OIDC discovery).
+- scope: reports.write
+  description: Generate/manage reports (from OIDC discovery).
+- scope: approval_rules.read
+  description: Read dual-authorization approval rules (from OIDC discovery).
+- scope: approval_rules.write
+  description: Manage dual-authorization approval rules (from OIDC discovery).
+- scope: authorization_requests.read
+  description: Read authorization requests (from OIDC discovery).
+- scope: authorization_requests.write
+  description: Manage authorization requests (from OIDC discovery).

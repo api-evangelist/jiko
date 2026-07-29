@@ -1,0 +1,38 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.jiko.io/products/customer-api/sandbox-access
+summary: Jiko provides an isolated sandbox environment that is not connected to live
+  payment networks — it cannot process real funds and approved transfer requests are
+  not executed. Access is provisioned by Jiko after self-service sign-up.
+environments:
+  sandbox:
+    signup_url: https://authentication-portal.sandbox-api.jikoservices.com/sign-up
+    business_dashboard: https://business-dashboard.sandbox-api.jikoservices.com
+    auth_issuer: https://authentication-portal.sandbox-api.jikoservices.com
+    api_host_pattern: '*.sandbox-api.jikoservices.com'
+    verification_email_from: no-reply@sandbox.jiko.com
+onboarding:
+  steps:
+  - Sign up on the sandbox authentication portal and verify via the emailed link.
+  - View the onboarding landing page (form does not need to be submitted for sandbox)
+    and notify Jiko; Jiko completes enablement and provisions a private sandbox tenant.
+  - Jiko funds the sandbox customer with a fake USD deposit, creating a pocket that
+    auto-invests into fake T-bill holdings; additional pockets can be created via
+    UI or API.
+  credentials:
+  - Sign in to the sandbox business dashboard and open Settings.
+  - Create an OAuth Client (name, description, redirect URIs, scopes).
+  - Add credentials by choosing an OAuth Client, naming it, and pasting your public
+    key.
+  - Authenticate with Private Key JWT (sign a JWT with your private key; Jiko verifies
+    with your registered public key) — no shared secrets.
+test_data:
+  note: Jiko seeds the sandbox tenant with fake USD balances auto-invested into fake
+    T-bill holdings. No fixed magic test card numbers or test tokens were published
+    on the reviewed sandbox pages; values are provisioned per tenant.
+  webhook_triggers: The Partner API exposes a Trigger Webhook sandbox endpoint that
+    emits example payloads for each event type (see asyncapi/jiko-webhooks.yml).
+partner_sandbox: https://docs.jiko.io/products/partner-api/sandbox-access
+caveats:
+- Sandbox is not linked to live payment networks; no real money moves.
+- Approved transfer requests are not executed in sandbox.

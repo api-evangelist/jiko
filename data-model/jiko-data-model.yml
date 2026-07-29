@@ -1,0 +1,50 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.jiko.io/products/partner-api/guides/building/data-model
+summary: A Jiko integration lives inside a securely isolated Partner Tenant. Customers
+  (verified individuals or businesses after KYC/KYB) own Pockets; each Pocket pairs
+  a bank account with a brokerage account for T-bill exposure and exposes one or more
+  Portals (unique routing/account numbers) for moving money in and out. Cards are
+  issued at the Customer level.
+entities:
+- name: PartnerTenant
+  description: The overarching, isolated platform environment for a partner.
+- name: Customer
+  description: A verified legal entity (individual or business) that owns the underlying
+    assets, created after successful KYC/KYB onboarding.
+  id_field: customer_id
+- name: Pocket
+  description: Core construct combining a bank account (cash movement) and a brokerage
+    account (T-bill exposure). A customer can have many (e.g. Operating Capital, Payroll).
+  id_field: pocket_id
+- name: Portal
+  description: An access point that generates a unique routing number and account
+    number tied to a specific Pocket (e.g. receiving wires, payroll deposits). Portals
+    V2 also support on-chain crypto deposit addresses.
+  id_field: portal_id
+- name: Card
+  description: Physical or virtual debit card issued at the Customer level and associated
+    with a Pocket.
+  id_field: card_id
+- name: Transfer
+  description: Money movement across ACH, wire, SWIFT, cards, or 24/7 on-us JikoNet;
+    surfaced as wires, on-us transfers, ACH originations and transfer requests.
+relationships:
+- from: PartnerTenant
+  to: Customer
+  type: has_many
+- from: Customer
+  to: Pocket
+  type: has_many
+- from: Customer
+  to: Card
+  type: has_many
+  via: customer_id
+- from: Pocket
+  to: Portal
+  type: has_many
+  note: Each pocket comes with one portal instantiated; more can be created.
+- from: Card
+  to: Pocket
+  type: belongs_to
+  via: pocket_id

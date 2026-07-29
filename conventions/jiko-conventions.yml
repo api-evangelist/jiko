@@ -1,0 +1,76 @@
+generated: '2026-07-19'
+method: searched
+source:
+- https://docs.jiko.io/products/partner-api/authentication
+- https://docs.jiko.io/products/customer-api/guides/rate-limits
+- https://docs.jiko.io/products/partner-api/guides/building/webhooks
+- https://docs.jiko.io/products/customer-api/guides/oauth/getting-started
+api_style: REST/JSON over HTTPS, versioned under the /api/v1 (and /api/v2 for newer
+  resources) path.
+authentication:
+  customer_api: OAuth 2.0 (authorization code + client credentials), Private Key JWT
+    client auth, PKCE required, DPoP optional. See authentication/jiko-authentication.yml.
+  partner_api: Bearer token from Login, plus HMAC-SHA256 request signature and idempotency
+    header. See authentication/jiko-authentication.yml.
+idempotency:
+  supported: true
+  scope: partner-api
+  header: x-jiko-idempotency
+  value: A random UUID unique per action from the partner's perspective.
+  retention: 1 hour — a request is treated as a repeat if the idempotency key was
+    used within the previous hour.
+  signature_binding: The idempotency key is also the first component of the x-jiko-signature
+    HMAC (x-jiko-idempotency + pathname + body).
+  notes: The Customer API's create Transfer Requests endpoint is separately rate-limited
+    (60/min, 1/sec) to protect against duplicate money movement.
+request_signing:
+  scope: partner-api
+  header: x-jiko-signature
+  algorithm: HMAC-SHA256, base64-encoded
+  input: x-jiko-idempotency + request pathname + request body
+  key: partner shared secret
+pagination:
+  style: offset
+  request_params:
+  - offset
+  - count
+  response_envelope:
+    object_type: List
+    fields:
+    - offset
+    - count
+    - items
+  example_source: https://docs.jiko.io/products/partner-api/guides/building/webhooks
+versioning:
+  scheme: uri-path
+  versions:
+  - v1
+  - v2
+  notes: Newer resources (e.g. Portals V2, Transactions V2, Counterparties V2) are
+    introduced under /api/v2 while v1 remains; see changelog/jiko-changelog.yml.
+rate_limiting:
+  signaled_via_headers: true
+  headers:
+  - X-RateLimit-Limit
+  - X-RateLimit-Remaining
+  - X-RateLimit-Reset
+  retry_after_header: Retry-After
+  over_limit_status: 429
+  detail: rate-limits/jiko-rate-limits.yml
+error_envelope:
+  status_codes: Standard HTTP status codes; 429 Too Many Requests on rate-limit breach
+    with a Retry-After header.
+  note: A machine-readable problem-details/error catalog was not published in the docs
+    pages reviewed; error semantics are conveyed via HTTP status + endpoint docs.
+object_typing:
+  discriminator_field: object_type
+  examples:
+  - List
+  - EventType
+cross_links:
+  authentication: authentication/jiko-authentication.yml
+  scopes: scopes/jiko-scopes.yml
+  rate_limits: rate-limits/jiko-rate-limits.yml
+  webhooks: asyncapi/jiko-webhooks.yml
+  lifecycle: lifecycle/jiko-lifecycle.yml
+  data_model: data-model/jiko-data-model.yml

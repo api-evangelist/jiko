@@ -1,20 +1,107 @@
 aid: jiko
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/jiko.png
 name: Jiko
-description: Jiko is a company surfaced as a portfolio company of 500-global and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: Jiko is a fintech infrastructure company that turns idle cash into US
+  Treasury bills held in the customer's own name, combining a nationally chartered
+  bank, a registered broker-dealer, and a real-time settlement network (JikoNet) behind
+  a single API. Its "Jiko as a Service" platform lets partners embed T-bill-backed
+  accounts, virtual and physical debit cards, pockets (paired bank + brokerage accounts),
+  and multi-rail money movement (ACH, wire, SWIFT, cards, and 24/7 on-us JikoNet transfers)
+  into their own applications. Jiko exposes two OAuth 2.0 / HMAC-secured REST APIs
+  — a Customer API for direct integrators and a Partner API for embedding Jiko products
+  on behalf of end customers.
 url: https://raw.githubusercontent.com/api-evangelist/jiko/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - 500-global
-x-tier: stub
+x-tier: enriched
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
 tags:
 - Company
-apis: []
+- Banking
+- Payments
+- Treasury
+- Embedded Finance
+- Fintech
+- Cards
+- Settlement
+- Broker-Dealer
+- Banking as a Service
+apis:
+- aid: jiko:jiko-customer-api
+  name: Jiko Customer API
+  humanURL: https://docs.jiko.io/products/customer-api
+  baseURL: https://api.sandbox-api.jikoservices.com/api/v1
+  description: The Customer API is for Jiko customers integrating Jiko directly into
+    their own internal systems. It uses OAuth 2.0 (authorization code and client credentials
+    flows) with Private Key JWT client authentication, PKCE (required) and DPoP (optional),
+    and covers pockets, portals, transfers (JikoNet, wires, SWIFT, ACH), counterparties,
+    trades and trading strategies, transactions, reports, teams, subscriptions/webhooks,
+    and customer management.
+  tags:
+  - Banking
+  - Treasury
+  - Payments
+  - Transfers
+  - OAuth
+  properties:
+  - type: Documentation
+    url: https://docs.jiko.io/products/customer-api
+  - type: APIReference
+    url: https://docs.jiko.io/products/customer-api
+  - type: GettingStarted
+    url: https://docs.jiko.io/products/customer-api/guides/oauth/getting-started
+  - type: Authentication
+    url: authentication/jiko-authentication.yml
+  - type: OAuthScopes
+    url: scopes/jiko-scopes.yml
+  - type: Webhooks
+    url: asyncapi/jiko-webhooks.yml
+  - type: ChangeLog
+    url: https://docs.jiko.io/products/customer-api/changelog
+- aid: jiko:jiko-partner-api
+  name: Jiko Partner API
+  humanURL: https://docs.jiko.io/products/partner-api
+  baseURL: https://api.sandbox-api.jikoservices.com/api/v1
+  description: The Partner API is for applications that embed Jiko's services and offer
+    Jiko products to their own customers. It authenticates with a bearer token obtained
+    via Login, and requires an x-jiko-idempotency header plus an HMAC-SHA256 x-jiko-signature
+    request signature and IP allowlisting. It covers partner-tenant onboarding (KYC/KYB),
+    customers, pockets, portals, cards (physical and virtual), ACH originations, wires,
+    JikoNet transfers, and event subscriptions/webhooks.
+  tags:
+  - Banking
+  - Embedded Finance
+  - Cards
+  - Onboarding
+  - Webhooks
+  properties:
+  - type: Documentation
+    url: https://docs.jiko.io/products/partner-api
+  - type: APIReference
+    url: https://docs.jiko.io/products/partner-api
+  - type: Authentication
+    url: authentication/jiko-authentication.yml
+  - type: Webhooks
+    url: asyncapi/jiko-webhooks.yml
+  - type: ChangeLog
+    url: https://docs.jiko.io/products/partner-api/changelog
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -22,4 +109,69 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
-  url: https://jiko.io
+  url: https://jiko.com
+- type: DeveloperPortal
+  url: https://docs.jiko.io
+- type: Documentation
+  url: https://docs.jiko.io
+- type: APIReference
+  url: https://docs.jiko.io/products/customer-api
+- type: GettingStarted
+  url: https://docs.jiko.io/products/customer-api/guides/oauth/getting-started
+- type: Blog
+  url: https://jiko.com/blog
+- type: Support
+  url: https://jiko.com
+- type: SignUp
+  url: https://authentication-portal.sandbox-api.jikoservices.com/sign-up
+- type: Portal
+  url: https://business.jiko.io
+- type: TermsOfService
+  url: https://jiko.com/agreements-disclosures
+- type: PrivacyPolicy
+  url: https://jiko.com/privacy-policy
+- type: TrustCenter
+  url: https://jiko.com/trust-and-safety
+- type: Compliance
+  url: https://jiko.com/trust-and-safety
+- type: Authentication
+  url: authentication/jiko-authentication.yml
+- type: OAuthScopes
+  url: scopes/jiko-scopes.yml
+- type: Conventions
+  url: conventions/jiko-conventions.yml
+- type: Idempotency
+  url: conventions/jiko-conventions.yml
+- type: RateLimits
+  url: rate-limits/jiko-rate-limits.yml
+- type: ChangeLog
+  url: changelog/jiko-changelog.yml
+- type: Sandbox
+  url: sandbox/jiko-sandbox.yml
+- type: Lifecycle
+  url: lifecycle/jiko-lifecycle.yml
+- type: Webhooks
+  url: asyncapi/jiko-webhooks.yml
+- type: WellKnown
+  url: well-known/jiko-well-known.yml
+- type: MCPServer
+  url: mcp/jiko-mcp.yml
+  name: Jiko MCP Server (candidate)
+- type: LLMsTxt
+  url: llms/jiko-llms.txt
+- type: Conformance
+  url: conformance/jiko-conformance.yml
+- type: TrustCenter
+  url: security/jiko-trust-center.yml
+- type: DomainSecurity
+  url: security/jiko-domain-security.yml
+- type: DataModel
+  url: data-model/jiko-data-model.yml
+- type: AgentSkill
+  url: skills/_index.yml
+  name: Jiko Agent Skills
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

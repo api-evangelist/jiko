@@ -1,0 +1,18 @@
+generated: '2026-07-19'
+method: generated
+source: Grounded in documented Jiko Customer/Partner API operations (https://docs.jiko.io).
+skills:
+- file: jiko-subscribe-to-transfer-events.md
+  name: Subscribe to Jiko transfer events and reconcile
+  api: jiko:jiko-customer-api
+  operations:
+  - create_subscription_api_v1_subscriptions__post
+  - get_transfer_request_api_v1_transfer_requests__transfer_id___get
+  - list-transactions-v2
+- file: jiko-partner-monitor-cards.md
+  name: Authenticate to the Jiko Partner API and monitor customer cards
+  api: jiko:jiko-partner-api
+  operations:
+  - login_api_v1_login__post
+  - list_event_types_api_v1_events_types__get
+  - list_customer_cards_api_v1_customers__customer_id__cards__get

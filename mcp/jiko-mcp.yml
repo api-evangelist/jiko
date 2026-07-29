@@ -1,0 +1,66 @@
+generated: '2026-07-19'
+method: derived
+status: candidate
+source: Documented Jiko Customer/Partner API operations (https://docs.jiko.io) — no
+  official hosted MCP server was found; this is a candidate tool surface derived from
+  real, documented operations.
+server:
+  name: jiko
+  transport: http
+  url: null
+notes: Operation ids below are taken verbatim from Jiko's published API reference URLs.
+  Bind auth per authentication/jiko-authentication.yml before exposing money-movement
+  tools; write/transfer tools are candidates for human-in-the-loop gating.
+tools:
+- name: list_pockets
+  description: List a customer's pockets (paired bank + brokerage accounts).
+  api: jiko:jiko-customer-api
+  source_operation: list-pockets-v2
+- name: list_transactions
+  description: List transactions, filterable by card and portal ids.
+  api: jiko:jiko-customer-api
+  source_operation: list-transactions-v2
+- name: list_counterparties
+  description: List counterparties for a customer.
+  api: jiko:jiko-customer-api
+  source_operation: list-counterparties-v2
+- name: create_counterparty
+  description: Create a counterparty (supports IBAN for international wires).
+  api: jiko:jiko-customer-api
+  source_operation: create-counterparty-v2
+- name: get_transfer_request
+  description: Get a transfer request by id (wire_id or on_us_id).
+  api: jiko:jiko-customer-api
+  source_operation: get_transfer_request_api_v1_transfer_requests__transfer_id___get
+- name: list_wires
+  description: List wires, filterable by pocket_id/customer_id and direction.
+  api: jiko:jiko-customer-api
+  source_operation: list-wires-v1
+- name: get_wire
+  description: Get a single wire.
+  api: jiko:jiko-customer-api
+  source_operation: get-wire-v1
+- name: create_subscription
+  description: Create a webhook subscription for event notifications.
+  api: jiko:jiko-customer-api
+  source_operation: create_subscription_api_v1_subscriptions__post
+- name: partner_login
+  description: Obtain a partner bearer token.
+  api: jiko:jiko-partner-api
+  source_operation: login_api_v1_login__post
+- name: list_event_types
+  description: List available Partner API webhook event types.
+  api: jiko:jiko-partner-api
+  source_operation: list_event_types_api_v1_events_types__get
+- name: list_customer_cards
+  description: List a customer's cards.
+  api: jiko:jiko-partner-api
+  source_operation: list_customer_cards_api_v1_customers__customer_id__cards__get
+- name: list_customer_ach_originations
+  description: List a customer's ACH originations.
+  api: jiko:jiko-partner-api
+  source_operation: list_customer_ach_originations_api_v1_customers__customer_id__ach_originating__get
+- name: list_customer_portals
+  description: List a customer's portals (V2).
+  api: jiko:jiko-partner-api
+  source_operation: list_customer_portals_api_v2_customers__customer_id__portals__get

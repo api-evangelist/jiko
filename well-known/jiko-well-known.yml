@@ -1,0 +1,29 @@
+generated: '2026-07-19'
+method: searched
+hosts:
+- host: https://authentication-portal.sandbox-api.jikoservices.com
+  role: OAuth 2.0 / OpenID Connect authorization server (sandbox)
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: jiko-openid-configuration.json
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/jwks.json
+    status: 200
+    note: Referenced as jwks_uri in the OIDC discovery document (not saved verbatim).
+- host: https://jiko.com
+  role: Corporate website
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+- host: https://docs.jiko.io
+  role: Developer documentation
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /llms.txt
+    status: 200
+    note: Saved verbatim at llms/jiko-llms.txt (LLMsTxt artifact).

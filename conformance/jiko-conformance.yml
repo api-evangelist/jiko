@@ -1,0 +1,56 @@
+generated: '2026-07-19'
+method: searched
+source:
+- https://authentication-portal.sandbox-api.jikoservices.com/.well-known/openid-configuration
+- https://docs.jiko.io/products/customer-api/guides/oauth/getting-started
+- https://docs.jiko.io/products/partner-api/authentication
+- https://jiko.com/trust-and-safety
+standards:
+- id: oauth2
+  conforms: true
+  evidence: Customer API uses OAuth 2.0 authorization code and client credentials flows;
+    grant_types_supported in OIDC discovery.
+- id: oidc
+  conforms: true
+  evidence: Published OpenID Connect discovery document with issuer, authorization/token/userinfo
+    endpoints, jwks_uri, openid scope.
+- id: oauth2-pkce
+  conforms: true
+  evidence: PKCE (Proof Key for Code Exchange) documented as required for the authorization
+    code flow.
+- id: oauth2-dpop
+  conforms: true
+  evidence: DPoP (Demonstrating Proof of Possession, RFC 9449) documented as an optional
+    token-binding extension.
+- id: oauth2-par
+  conforms: true
+  evidence: pushed_authorization_request_endpoint (RFC 9126) present in OIDC discovery.
+- id: private-key-jwt
+  conforms: true
+  evidence: All Customer API clients authenticate with Private Key JWT (client_assertion);
+    token_endpoint_auth_signing_alg PS256/EdDSA.
+- id: hmac-request-signing
+  conforms: true
+  evidence: Partner API requires an HMAC-SHA256 x-jiko-signature over idempotency key
+    + pathname + body.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: No application/problem+json error catalog was published on the reviewed
+    pages.
+- id: idempotency
+  conforms: true
+  evidence: Partner API x-jiko-idempotency header with a 1-hour replay window; create-transfer
+    endpoints separately rate-limited.
+compliance:
+  published: true
+  source: https://jiko.com/trust-and-safety
+  programs:
+  - SOC 2
+  - PCI DSS
+  regulatory:
+  - FDIC (bank deposit insurance)
+  - SIPC (broker-dealer, up to $500,000 per client)
+  - FINRA (registered broker-dealer; TRACE reporting)
+  - SEC Rule 15c3-3 (Customer Protection Rule); 17a-4 / WORM recordkeeping
+  - Federal Reserve (bank holding company oversight)
+  - OCC (bank regulation)

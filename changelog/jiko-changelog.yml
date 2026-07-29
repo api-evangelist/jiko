@@ -1,0 +1,53 @@
+generated: '2026-07-19'
+method: searched
+source:
+- https://docs.jiko.io/products/customer-api/changelog
+- https://docs.jiko.io/products/partner-api/changelog
+scheme: dated (per-API changelog, YYYY-MM-DD)
+changelogs:
+- api: jiko:jiko-customer-api
+  url: https://docs.jiko.io/products/customer-api/changelog
+  entries:
+  - date: '2026-06-09'
+    additions:
+    - Added List Wires and Get Wire endpoints (filterable by pocket_id/customer_id
+      and by direction INCOMING/OUTGOING).
+  - date: '2026-06-02'
+    additions:
+    - Exposed Portals V2 endpoints.
+  - date: '2026-05-28'
+    additions:
+    - Added Update Portal (rename or set status CLOSED; closing is irreversible).
+  - date: '2026-05-14'
+    additions:
+    - Added filter options to List Transactions (by card and portal ids).
+  - date: '2026-03-31'
+    additions:
+    - Added identifier_type field to International Wire counterparty models to support
+      IBAN account numbers.
+  - date: '2026-01-20'
+    highlights:
+    - Made the Customer API public to integrators.
+- api: jiko:jiko-partner-api
+  url: https://docs.jiko.io/products/partner-api/changelog
+  entries:
+  - date: '2026-06-09'
+    additions:
+    - Added List Wires and Get Wire endpoints (filterable, with direction filter).
+  - date: '2026-06-03'
+    additions:
+    - Added pricing_timestamp and appreciation_per_second to the Portfolio response
+      for real_time_yield pockets (client-side interpolation of total_value).
+  - date: '2026-05-08'
+    additions:
+    - Added List Customer ACH Originations endpoint.
+  - date: '2026-05-07'
+    additions:
+    - Added List Customer Cards and List Customer Card Orders endpoints; added pocket_id
+      to Card results; added magstripe_status to Set Card Status.
+  - date: '2026-05-05'
+    breaking: false
+    additions:
+    - Introduced Portals V2 with on-chain crypto deposit address support alongside
+      virtual bank account portals (List/Get/Create/Update Portal + List Customer
+      Portals).

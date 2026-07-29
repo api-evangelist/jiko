@@ -1,0 +1,55 @@
+# Jiko Technologies API Documentation
+
+> External APIs for integrators
+
+## Customer API
+
+ - [FAQ](https://docs.jiko.io/products/customer-api/faq.md)
+ - [Glossary](https://docs.jiko.io/products/customer-api/guides/introduction.md)
+ - [Rate Limits](https://docs.jiko.io/products/customer-api/guides/rate-limits.md)
+ - [Obtaining API access to Jiko's Sandbox environment](https://docs.jiko.io/products/customer-api/sandbox-access.md)
+ - [Customer API Changelog](https://docs.jiko.io/products/customer-api/changelog.md)
+ - [Customer API](https://docs.jiko.io/products/customer-api.md)
+ - [Pay Third-parties using ACH Pull](https://docs.jiko.io/products/customer-api/use-cases/ach.md)
+ - [Export Reporting](https://docs.jiko.io/products/customer-api/use-cases/export-reporting.md)
+ - [Export T-Bill Investment Trades](https://docs.jiko.io/products/customer-api/use-cases/export-trades.md)
+ - [Pay Third-parties using JikoNet](https://docs.jiko.io/products/customer-api/use-cases/jikonet-transfers.md)
+ - [Manage Pockets (bank account) & Balances](https://docs.jiko.io/products/customer-api/use-cases/manage-pockets-and-balances.md)
+ - [Introduction](https://docs.jiko.io/products/customer-api/use-cases/manage-users.md)
+ - [Transfer Funds between Your Pockets (Same-entity)](https://docs.jiko.io/products/customer-api/use-cases/same-entity-transfers.md)
+ - [Transfer Funds between Your Pockets (Same-entity)](https://docs.jiko.io/products/customer-api/use-cases/transfers-same-entity.md)
+ - [Manage Users & Access](https://docs.jiko.io/products/customer-api/use-cases/users-and-access.md)
+ - [Receive Event Notifications (Webhooks)](https://docs.jiko.io/products/customer-api/use-cases/webhooks.md)
+ - [Pay Third-parties using Wires or Swift](https://docs.jiko.io/products/customer-api/use-cases/wires.md)
+ - [Request Signing](https://docs.jiko.io/products/customer-api/guides/message-signing/request-signing.md)
+ - [Authorization Code Flow](https://docs.jiko.io/products/customer-api/guides/oauth/authorization-code-flow.md)
+ - [Client Credentials Flow](https://docs.jiko.io/products/customer-api/guides/oauth/client-credentials.md)
+ - [DPoP (Demonstrating Proof of Possession)](https://docs.jiko.io/products/customer-api/guides/oauth/dpop.md)
+ - [Authentication](https://docs.jiko.io/products/customer-api/guides/oauth/getting-started.md)
+ - [Login flow](https://docs.jiko.io/products/customer-api/guides/oauth/login-flow.md)
+ - [PKCE (Proof Key for Code Exchange)](https://docs.jiko.io/products/customer-api/guides/oauth/pkce.md)
+ - [Private Key JWT](https://docs.jiko.io/products/customer-api/guides/oauth/private-key-jwt.md)
+ - [Refresh Tokens](https://docs.jiko.io/products/customer-api/guides/oauth/refresh-tokens.md)
+ - [Scope Descriptions](https://docs.jiko.io/products/customer-api/guides/oauth/scopes.md)
+
+## Partner API
+
+ - [Partner API FAQ](https://docs.jiko.io/products/partner-api/faq.md)
+ - [Partner API Sandbox Access](https://docs.jiko.io/products/partner-api/sandbox-access.md)
+ - [Authentication](https://docs.jiko.io/products/partner-api/authentication.md)
+ - [Partner Obligations](https://docs.jiko.io/products/partner-api/partner-obligation.md)
+ - [Partner API Changelog](https://docs.jiko.io/products/partner-api/changelog.md)
+ - [Partner API](https://docs.jiko.io/products/partner-api.md)
+ - [ACH Transfer Settlement Timing](https://docs.jiko.io/products/partner-api/guides/ach-windows.md)
+ - [What are Treasury Bills?](https://docs.jiko.io/products/partner-api/guides/intro-tbills.md)
+ - [Accounts](https://docs.jiko.io/products/partner-api/guides/building/accounts.md)
+ - [Auth](https://docs.jiko.io/products/partner-api/guides/building/auth.md)
+ - [Cards](https://docs.jiko.io/products/partner-api/guides/building/cards.md)
+ - [Jiko Data Model](https://docs.jiko.io/products/partner-api/guides/building/data-model.md)
+ - [Going Live](https://docs.jiko.io/products/partner-api/guides/building/going-live.md)
+ - [Introduction](https://docs.jiko.io/products/partner-api/guides/building/onboarding-businesses.md)
+ - [Introduction](https://docs.jiko.io/products/partner-api/guides/building/onboarding-individuals.md)
+ - [Pockets](https://docs.jiko.io/products/partner-api/guides/building/pockets.md)
+ - [Webhooks](https://docs.jiko.io/products/partner-api/guides/building/webhooks.md)
+ - [Partner Onboarding](https://docs.jiko.io/products/partner-api/guides/onboarding/partner-onboarding.md)
+

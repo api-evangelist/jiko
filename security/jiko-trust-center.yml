@@ -1,0 +1,28 @@
+generated: '2026-07-19'
+method: searched
+probe: false
+url: https://jiko.com/trust-and-safety
+certifications:
+- SOC 2
+- PCI DSS
+regulatory_oversight:
+- FDIC
+- SIPC
+- FINRA
+- SEC
+- Federal Reserve
+- OCC
+security_practices:
+- Cloud infrastructure with data encryption in transit and at rest.
+- Two-factor authentication on the business dashboard.
+- Dual-authorization (maker-checker) transfers for wire approvals.
+- Locked wire transfers to approved external accounts only.
+- 24/7 monitoring by dedicated security staff.
+- WORM (Write Once, Read Many) storage per SEC Rule 17a-4 / FINRA rules.
+- Daily reconciliation of customer assets and Treasury bills; weekly external audits.
+- Segregated, no-lien custodial accounts at BNY Mellon for customer benefit.
+evidence:
+- source: https://jiko.com/trust-and-safety
+  keywords: [soc 2, pci dss, fdic, sipc, finra, worm, encryption]
+notes: No vulnerability-disclosure / bug-bounty / security contact was published on
+  the trust-and-safety page (no VulnerabilityDisclosure artifact emitted).
