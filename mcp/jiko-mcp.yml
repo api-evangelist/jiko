@@ -1,16 +1,15 @@
 generated: '2026-07-19'
 method: derived
 status: candidate
-source: Documented Jiko Customer/Partner API operations (https://docs.jiko.io) — no
-  official hosted MCP server was found; this is a candidate tool surface derived from
-  real, documented operations.
+source: Documented Jiko Customer/Partner API operations (https://docs.jiko.io) — no official hosted MCP
+  server was found; this is a candidate tool surface derived from real, documented operations.
 server:
   name: jiko
   transport: http
   url: null
-notes: Operation ids below are taken verbatim from Jiko's published API reference URLs.
-  Bind auth per authentication/jiko-authentication.yml before exposing money-movement
-  tools; write/transfer tools are candidates for human-in-the-loop gating.
+notes: Operation ids below are taken verbatim from Jiko's published API reference URLs. Bind auth per
+  authentication/jiko-authentication.yml before exposing money-movement tools; write/transfer tools are
+  candidates for human-in-the-loop gating.
 tools:
 - name: list_pockets
   description: List a customer's pockets (paired bank + brokerage accounts).
@@ -64,3 +63,9 @@ tools:
   description: List a customer's portals (V2).
   api: jiko:jiko-partner-api
   source_operation: list_customer_portals_api_v2_customers__customer_id__portals__get
+deployment:
+  mode: none
+  verified: derived
+  tools: 13
+  checked: '2026-08-12'
+  source: catalog MCP census
