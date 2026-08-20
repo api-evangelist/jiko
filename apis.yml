@@ -59,6 +59,12 @@ apis:
   - Treasury
   - Payments
   - Transfers
+  - Authentication
+  tags_raw:
+  - Banking
+  - Treasury
+  - Payments
+  - Transfers
   - OAuth
   properties:
   - type: Documentation
@@ -86,6 +92,12 @@ apis:
     customers, pockets, portals, cards (physical and virtual), ACH originations, wires,
     JikoNet transfers, and event subscriptions/webhooks.
   tags:
+  - Banking
+  - Embedded Finance
+  - Cards
+  - Onboarding
+  - Webhook
+  tags_raw:
   - Banking
   - Embedded Finance
   - Cards
