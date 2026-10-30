@@ -64,12 +64,122 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Jiko is a fintech infrastructure company that turns idle cash into US Treasury bills held in the customer's own name, combining a nationally chartered bank, a registered broker-dealer, and a real-time settlement network (JikoNet) behind a single API. Its "Jiko as a Service" platform lets partners embed T-bill-backed accounts, debit cards, pockets (paired bank + brokerage accounts), and multi-rail money movement (ACH, wire, SWIFT, cards, 24/7 on-us JikoNet) into their own applications.
+Jiko is a fintech infrastructure company that turns idle cash into US Treasury bills held in the customer's own name, combining a nationally chartered bank, a registered broker-dealer, and a real-time settlement network (JikoNet) behind a single API. Its "Jiko as a Service" platform lets partners embed T-bill-backed accounts, virtual and physical debit cards, pockets (paired bank + brokerage accounts), and multi-rail money movement (ACH, wire, SWIFT, cards, and 24/7 on-us JikoNet transfers) into their own applications. Jiko exposes two OAuth 2.0 / HMAC-secured REST APIs — a Customer API for direct integrators and a Partner API for embedding Jiko products on behalf of end customers.
 
-- Website: https://jiko.com
-- Developer docs: https://docs.jiko.io
-- Customer API: https://docs.jiko.io/products/customer-api
-- Partner API: https://docs.jiko.io/products/partner-api
-- Trust & Safety: https://jiko.com/trust-and-safety
+**Areas:** Company · Banking · Payments · Treasury · Embedded Finance · Fintech · Cards · Settlement · Broker-Dealer · Banking as a Service
 
-Surfaced as a portfolio company of 500 Global and enriched by the API Evangelist pipeline from Jiko's public developer surface (two OAuth 2.0 / HMAC-secured REST APIs).
+## Jiko on APIs.io
+
+Everything profiled for Jiko is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/jiko/](https://apis.io/providers/jiko/)** — or go straight to one of the APIs or properties below.
+
+### APIs (2)
+
+- [Jiko Customer API](https://apis.io/apis/jiko/jiko-customer-api/) — The Customer API is for Jiko customers integrating Jiko directly into their own internal systems. It uses OAuth 2.0 (authorization code and client…
+- [Jiko Partner API](https://apis.io/apis/jiko/jiko-partner-api/) — The Partner API is for applications that embed Jiko's services and offer Jiko products to their own customers. It authenticates with a bearer token obtained…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### AsyncAPI (1)
+
+Event-driven and webhook contracts.
+
+- [Jiko Webhooks](https://apis.io/asyncapis/jiko/jiko-webhooks/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [jiko](https://apis.io/servers/jiko/jiko/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Jiko Authentication](https://apis.io/security/jiko/jiko-authentication/)
+- [Jiko Domain Security](https://apis.io/security/jiko/jiko-domain-security/)
+- [Jiko Trust Center](https://apis.io/security/jiko/jiko-trust-center/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Jiko Scopes](https://apis.io/scopes/jiko/jiko-scopes/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Jiko Rate Limits](https://apis.io/rate-limits/jiko/jiko-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://jiko.com)
+- [Documentation](https://docs.jiko.io)
+- [Getting started](https://docs.jiko.io/products/customer-api/guides/oauth/getting-started)
+- [API reference](https://docs.jiko.io/products/customer-api)
+- [Sign up](https://authentication-portal.sandbox-api.jikoservices.com/sign-up)
+- [Support](https://jiko.com)
+- [Blog](https://jiko.com/blog)
+- [Compliance](https://jiko.com/trust-and-safety)
+- [Trust centre](https://jiko.com/trust-and-safety)
+- [Terms of service](https://jiko.com/agreements-disclosures)
+- [Privacy policy](https://jiko.com/privacy-policy)
+
+## API Evangelist rating
+
+**Kin Score 52.1** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 39.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 55.3 |
+| Developer ergonomics | 66.1 |
+| Access clarity | 50.0 |
+
+**Agent readiness 34.7** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | served (partial credit) |
+| Idempotency | documented (partial credit) |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | yes |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 35.7** — Payments
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/jiko/](https://apis.io/providers/jiko/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Jiko: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/jiko/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
